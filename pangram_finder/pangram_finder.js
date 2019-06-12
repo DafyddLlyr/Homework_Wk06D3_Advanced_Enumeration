@@ -5,8 +5,7 @@ const PangramFinder = function (phrase) {
 
 PangramFinder.prototype.isPangram = function () {
   let phraseArray = this.phrase.toLowerCase().split('')
-  let cleanPhraseArray = phraseArray.filter(letter => letter !== /[^abc]/);
-  return this.alphabet.every(letter => cleanPhraseArray.includes(letter))
+  return this.alphabet.every(letter => phraseArray.includes(letter))
 }
 
 module.exports = PangramFinder;

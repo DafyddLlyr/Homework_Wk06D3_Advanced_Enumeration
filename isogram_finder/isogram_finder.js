@@ -3,10 +3,11 @@ const IsogramFinder = function (word) {
 }
 
 IsogramFinder.prototype.isIsogram = function () {
-  let wordObject = this.word.reduce(function (allLetters, letter) {
+  let objectMaker = function (allLetters, letter) {
     (letter in allLetters) ? allLetters[letter] += 1 : allLetters[letter] = 1;
     return allLetters;
-  }, {})
+  }
+  let wordObject = this.word.reduce(objectMaker, {})
   return Object.values(wordObject).every(frequency => frequency === 1);
 }
 
